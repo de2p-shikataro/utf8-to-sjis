@@ -9,7 +9,7 @@ module.exports =
   deactivate: ->
 
   serialize: ->
-    
+
   open: (encoding) ->
     workspace = atom.workspace
     editor = workspace.getActiveTextEditor()
@@ -17,7 +17,6 @@ module.exports =
     buffer = fs.readFileSync(path)
     convertedText = iconv.decode buffer, encoding
     editor.setText convertedText
-    # atom.workspace.saveActivePaneItem()
 
   save: (encoding) ->
     workspace = atom.workspace
