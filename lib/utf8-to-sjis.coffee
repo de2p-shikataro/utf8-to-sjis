@@ -15,5 +15,5 @@ module.exports =
     editor = workspace.getActiveTextEditor()
     path = editor.getPath()
     buffer = fs.readFileSync(path)
-    convertedText = iconv.decode buffer, encoding
+    convertedText = iconv.decode buffer, 'utf-8'
     editor.setText convertedText
