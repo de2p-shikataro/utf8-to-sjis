@@ -1,12 +1,10 @@
 {
   "name": "utf8-to-sjis",
   "main": "./lib/utf8-to-sjis",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A short description of your package",
-  "keywords": [
-  ],
   "activationCommands": {
-    "atom-workspace": "utf8-to-sjis:toggle"
+    "atom-workspace": "utf8-to-sjis:utf-8"
   },
   "repository": "https://github.com/atom/utf8-to-sjis",
   "license": "MIT",
@@ -14,5 +12,6 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+    "iconv-lite": "0.4.8"
   }
 }

@@ -1,33 +1,29 @@
-Utf8ToSjisView = require './utf8-to-sjis-view'
-{CompositeDisposable} = require 'atom'
+fs    = require 'fs'
+iconv = require 'iconv-lite'
 
-module.exports = Utf8ToSjis =
-  utf8ToSjisView: null
-  modalPanel: null
-  subscriptions: null
+module.exports =
 
   activate: (state) ->
-    @utf8ToSjisView = new Utf8ToSjisView(state.utf8ToSjisViewState)
-    @modalPanel = atom.workspace.addModalPanel(item: @utf8ToSjisView.getElement(), visible: false)
-
-    # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
-    @subscriptions = new CompositeDisposable
-
-    # Register command that toggles this view
-    @subscriptions.add atom.commands.add 'atom-workspace', 'utf8-to-sjis:toggle': => @toggle()
+    atom.commands.add 'atom-workspace', "utf8-to-sjis:utf-8", =>      @open 'utf-8'
 
   deactivate: ->
-    @modalPanel.destroy()
-    @subscriptions.dispose()
-    @utf8ToSjisView.destroy()
 
   serialize: ->
-    utf8ToSjisViewState: @utf8ToSjisView.serialize()
+    
+  open: (encoding) ->
+    workspace = atom.workspace
+    editor = workspace.getActiveTextEditor()
+    path = editor.getPath()
+    buffer = fs.readFileSync(path)
+    convertedText = iconv.decode buffer, encoding
+    editor.setText convertedText
+    # atom.workspace.saveActivePaneItem()
 
-  toggle: ->
-    console.log 'Utf8ToSjis was toggled!'
-
-    if @modalPanel.isVisible()
-      @modalPanel.hide()
-    else
-      @modalPanel.show()
+  save: (encoding) ->
+    workspace = atom.workspace
+    editor = workspace.getActiveTextEditor()
+    path = editor.getPath()
+    buffer = fs.readFileSync(path)
+    data = buffer.toString 'shift_jis'
+    buf = iconv.encode data, encoding
+    fs.writeFileSync( uri, buf )
