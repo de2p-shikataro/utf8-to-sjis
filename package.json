@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "A short description of your package",
   "activationCommands": {
-    "atom-workspace": "utf8-to-sjis:utf-8"
+    "atom-workspace": "utf8-to-sjis"
   },
   "repository": "https://github.com/atom/utf8-to-sjis",
   "license": "MIT",

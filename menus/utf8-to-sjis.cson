@@ -5,7 +5,7 @@
     'submenu': [
       {
         'label': 'UTF8 To SJIS'
-        'command': 'utf8-to-sjis:utf-8'
+        'command': 'utf8-to-sjis'
       }
     ]
   }
