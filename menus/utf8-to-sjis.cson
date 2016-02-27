@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle utf8-to-sjis'
+      'command': 'utf8-to-sjis:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'utf8-to-sjis'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'utf8-to-sjis:toggle'
+        }
+      ]
+    ]
+  }
+]
