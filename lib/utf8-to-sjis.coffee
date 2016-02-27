@@ -17,12 +17,3 @@ module.exports =
     buffer = fs.readFileSync(path)
     convertedText = iconv.decode buffer, encoding
     editor.setText convertedText
-
-  save: (encoding) ->
-    workspace = atom.workspace
-    editor = workspace.getActiveTextEditor()
-    path = editor.getPath()
-    buffer = fs.readFileSync(path)
-    data = buffer.toString 'shift_jis'
-    buf = iconv.encode data, encoding
-    fs.writeFileSync( uri, buf )
