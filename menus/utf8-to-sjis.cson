@@ -4,7 +4,7 @@
     'label': 'Packages'
     'submenu': [
       {
-        'label': 'utf8-to-sjis'
+        'label': 'UTF8 To SJIS'
         'command': 'utf8-to-sjis:utf-8'
       }
     ]
