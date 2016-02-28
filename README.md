@@ -1,5 +1,7 @@
 # utf8-to-sjis package
 
-A short description of your package.
+utf8でエンコードされているファイルをSJISで表示するためのパッケージです.
 
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+![A screenshot of your package](https://github.com/de2p-shikataro/utf8-to-sjis/wiki/images/before.png)
+![A screenshot of your package](https://github.com/de2p-shikataro/utf8-to-sjis/wiki/images/edit.png)
+![A screenshot of your package](https://github.com/de2p-shikataro/utf8-to-sjis/wiki/images/after.png)
