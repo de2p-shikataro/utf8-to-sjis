@@ -6,7 +6,7 @@
   "activationCommands": {
     "atom-workspace": "utf8-to-sjis"
   },
-  "repository": "https://github.com/atom/utf8-to-sjis",
+  "repository": "https://github.com/de2p-shikataro/utf8-to-sjis",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
