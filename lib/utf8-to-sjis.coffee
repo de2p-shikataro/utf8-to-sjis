@@ -1,10 +1,10 @@
 fs    = require 'fs'
-iconv = require 'iconv-lite'
+iconv = require 'jconv'
 
 module.exports =
 
   activate: (state) ->
-    atom.commands.add 'atom-workspace', "utf8-to-sjis", =>      @open 'utf-8'
+    atom.commands.add 'atom-workspace', "utf8-to-sjis", =>      @open 'UTF8'
 
   deactivate: ->
 
@@ -15,5 +15,14 @@ module.exports =
     editor = workspace.getActiveTextEditor()
     path = editor.getPath()
     buffer = fs.readFileSync(path)
-    convertedText = iconv.decode buffer, 'utf-8'
-    editor.setText convertedText
+    decodetedStr = iconv.decode buffer, encoding
+    editor.setText decodetedStr
+
+  save: (encoding) ->
+      workspace = atom.workspace
+      editor = workspace.getActiveTextEditor()
+      path = editor.getPath()
+      buffer = fs.readFileSync(path)
+      str = buffer.toString 'shift_jis'
+      encodedBuf = iconv.encode str, encoding
+      fs.writeFileSync( uri, encodedBuf )
